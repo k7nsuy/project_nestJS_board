@@ -1,8 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import 'dotenv/config'
-import { LoggerMiddleware } from './middleware/logger.middleware';
-
+import { LoggerMiddleware } from './middlewares/logger.middleware';
 const SERVER_PORT = process.env.SERVER_PORT
 
 async function mainServer() {

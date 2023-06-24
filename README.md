@@ -2,7 +2,6 @@
 ## ERD
 ![이미지 설명](/Board_final.png)
 
-### Directories and files
 ## src
 - APIs
   - auth
@@ -67,6 +66,10 @@
     - users.module.ts
     - users.service.ts
 - configs
+  - database.config.ts
+  - jwt.config.ts
+  - modules.config.ts
 - middlewares
+  - logger.middleware.ts
 - app.module.ts
 - main.ts
