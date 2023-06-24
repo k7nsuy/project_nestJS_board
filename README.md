@@ -1,0 +1,72 @@
+# Board Project with NestJS
+## ERD
+![이미지 설명](/Board_final.png)
+
+### Directories and files
+## src
+- APIs
+  - auth
+    - dto
+      - login.dto.ts
+    - auth.module.ts
+    - auth.service.ts
+    - jwt.strategy.ts
+  - chats
+    - dto
+      - create-comment.dto.ts
+      - create-reply.dto.ts
+    - entities
+      - chat.entity.ts
+    - chats.controller.ts
+    - chats.module.ts
+    - chats.service.ts
+  - posts
+    - dto
+      - anonymous-post.dto.ts
+      - create-post.dto.ts
+    - entities
+      - post.entity.ts
+    - posts.controller.ts
+    - posts.module.ts
+    - posts.service.ts
+  - spaces_members
+    - entities
+      - space-members.entity.ts
+  - spaces
+    - controllers
+      - space-roles.controller.ts
+      - spaces.controller.ts
+    - dto
+      - create-space.dto.ts
+      - join-space.dto.ts
+    - entities
+      - space-role.entity.ts
+      - space.entity.ts
+    - services
+      - space-role.service.ts
+      - spaces.service.ts
+  - spaces_roles
+    - controllers
+      - spaces-roles.controller.ts
+    - dto
+      - space-role.dto.ts
+    - entities
+      - space-role.entity.ts
+    - space-roles.controller.ts
+    - space-roles.module.ts
+    - space-roles.service.ts
+  - users_spaces
+    - entities
+      - user-space.entity.ts
+  - users
+    - dto
+      - user.entity.dto
+    - entities
+      - user.entity.ts
+    - users.controller.ts
+    - users.module.ts
+    - users.service.ts
+- configs
+- middlewares
+- app.module.ts
+- main.ts
