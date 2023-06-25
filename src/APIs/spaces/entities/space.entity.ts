@@ -1,33 +1,46 @@
-// import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany } from 'typeorm';
+import { Post } from 'src/APIs/posts/entities/post.entity';
+import { SpaceRole } from 'src/APIs/spaces-roles/entities/space-role.entity';
+import { User } from 'src/APIs/users/entities/user.entity';
+import { UserSpace } from 'src/APIs/users_spaces/user-space.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany,
+CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm';
 
-// @Entity('spaces')
-// export class SpaceEntity {
-//   @PrimaryGeneratedColumn('uuid')
-//   id: string;
+@Entity()
+export class Space {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-//   @Column()
-//   name: string;
+  @Column()
+  name: string;
 
-//   @Column()
-//   logo: string;
+  @Column()
+  logo: string;
 
-//   @ManyToMany(() => UserEntity)
-//   @JoinTable()
-//   members: UserEntity[];
+  @Column()
+  adminCode: string;
 
-//   @ManyToMany(() => UserEntity)
-//   @JoinTable()
-//   owners: UserEntity[];
+  @Column()
+  participantCode: string;
 
-//   @OneToMany(() => SpaceRoleEntity, spaceRoles => spaceRoles.space)
-//   spaceRoles: SpaceRoleEntity[];
+  @CreateDateColumn() // 데이터 등록시 자동으로 시간 추가
+  createdAt: Date
 
-//   @Column({ default: false })
-//   isDeleted: boolean;
+  @UpdateDateColumn() // 데이터 업데이트 시 자동으로 시간 추가
+  updatedAt: Date
 
-//   @Column('simple-array')
-//   adminCodes: string[];
+  @DeleteDateColumn() // soft 삭제를 위한 시간 칼럼 추가
+  deletedAt: Date;
 
-//   @Column('simple-array')
-//   participantCodes: string[];
-// }
+  @OneToMany(() => Post, post => post.space)
+  posts: Post[];
+
+  @OneToMany(() => SpaceRole, spaceRole => spaceRole.space)
+  spaceRoles: SpaceRole[];
+
+  @OneToMany(() => UserSpace, userSpace => userSpace.space)
+  userSpaces: UserSpace[];
+
+
+
+}
+

@@ -1,6 +1,6 @@
 # Board Project with NestJS
 ## ERD
-![이미지 설명](/Board_final.png)
+![이미지 설명](/ERD_Board_v4.png)
 
 ## src
 - APIs
