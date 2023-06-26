@@ -1,7 +1,6 @@
 import { Post } from 'src/APIs/posts/entities/post.entity';
 import { SpaceRole } from 'src/APIs/spaces-roles/entities/space-role.entity';
-import { User } from 'src/APIs/users/entities/user.entity';
-import { UserSpace } from 'src/APIs/users_spaces/user-space.entity';
+import { UserSpace } from 'src/APIs/users_spaces/entities/user-space.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany,
 CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm';
 
@@ -16,12 +15,6 @@ export class Space {
   @Column()
   logo: string;
 
-  @Column()
-  adminCode: string;
-
-  @Column()
-  participantCode: string;
-
   @CreateDateColumn() // 데이터 등록시 자동으로 시간 추가
   createdAt: Date
 
@@ -34,13 +27,10 @@ export class Space {
   @OneToMany(() => Post, post => post.space)
   posts: Post[];
 
-  @OneToMany(() => SpaceRole, spaceRole => spaceRole.space)
+  @OneToMany(() => SpaceRole, spaceRole => spaceRole.space, { eager: true })
   spaceRoles: SpaceRole[];
 
   @OneToMany(() => UserSpace, userSpace => userSpace.space)
   userSpaces: UserSpace[];
-
-
-
 }
 

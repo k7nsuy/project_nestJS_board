@@ -1,11 +1,15 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString, IsBoolean } from 'class-validator';
 
 export class CreateSpaceDto {
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   name: string;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   logo: string;
+
+  @IsNotEmpty()
+  @IsBoolean()
+  isAdmin: boolean = true;
 }
