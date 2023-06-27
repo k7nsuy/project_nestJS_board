@@ -1,3 +1,4 @@
+import { IsIn, IsNotEmpty } from 'class-validator';
 import { Chat } from 'src/APIs/chats/entities/chat.entity';
 import { Space } from 'src/APIs/spaces/entities/space.entity';
 import { User } from 'src/APIs/users/entities/user.entity';
@@ -16,6 +17,8 @@ export class Post {
   content: string;
 
   @Column()
+  @IsNotEmpty()
+  @IsIn(['notice', 'question'])
   type: string; // "공지" 또는 "질문"
 
   @Column({ nullable: true })
@@ -36,6 +39,6 @@ export class Post {
   @ManyToOne(() => Space, (space) => space.posts)
   space: Space;
 
-  @OneToMany(() => Chat, (chat) => chat.post)
+  @OneToMany(() => Chat, (chat) => chat.post, { cascade: true })
   chats: Chat[];
 }

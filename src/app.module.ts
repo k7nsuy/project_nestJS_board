@@ -10,13 +10,14 @@ import { PostsModule } from './APIs/posts/posts.module';
 import { ChatsModule } from './APIs/chats/chats.module';
 import { SpacesRolesModule } from './APIs/spaces-roles/spaces-roles.module';
 import { AuthModule } from './APIs/auth/auth.module';
+import 'dotenv/config'
 
 @Module({
   imports: [AuthModule, UsersModule, UserSpaceModule, SpacesModule, SpacesRolesModule,
     PostsModule, ChatsModule,
   TypeOrmModule.forRootAsync({
     useFactory: () => ({
-      ...databaseConfig[process.env.NODE_ENV || 'development'],
+      ...databaseConfig[process.env.NODE_ENV],
       entities: [__dirname + '/APIs/**/entities/*.entity.{js,ts}'],
     })
   }),

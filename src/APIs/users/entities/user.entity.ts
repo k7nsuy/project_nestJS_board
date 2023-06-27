@@ -1,6 +1,6 @@
 import { Chat } from 'src/APIs/chats/entities/chat.entity';
 import { Post } from 'src/APIs/posts/entities/post.entity';
-import { Space } from 'src/APIs/spaces/entities/space.entity';
+import { SpaceRole } from 'src/APIs/spaces-roles/entities/space-role.entity';
 import { UserSpace } from 'src/APIs/users_spaces/entities/user-space.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, DeleteDateColumn,
   CreateDateColumn, UpdateDateColumn } from 'typeorm';
@@ -40,6 +40,6 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, DeleteDateColumn,
     @OneToMany(() => Chat, chat => chat.author)
     chats: Chat[];
 
-    @OneToMany(() => UserSpace, userSpace => userSpace.user)
+    @OneToMany(() => UserSpace, userSpace => userSpace.space)
     userSpaces: UserSpace[];
 }

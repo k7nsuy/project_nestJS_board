@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsBoolean } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateSpaceDto {
   @IsNotEmpty()
@@ -8,8 +8,4 @@ export class CreateSpaceDto {
   @IsNotEmpty()
   @IsString()
   logo: string;
-
-  @IsNotEmpty()
-  @IsBoolean()
-  isAdmin: boolean = true;
 }

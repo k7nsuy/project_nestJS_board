@@ -6,5 +6,6 @@ import { UserSpace } from './entities/user-space.entity';
   imports: [
     TypeOrmModule.forFeature([UserSpace])
   ],
+  exports: []
 })
 export class UserSpaceModule {}

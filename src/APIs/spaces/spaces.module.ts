@@ -3,11 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Space } from './entities/space.entity';
 import { SpaceController } from './spaces.controller';
 import { SpaceService } from './spaces.service';
-import { SpacesRolesModule } from '../spaces-roles/spaces-roles.module';
 import { SpaceRole } from '../spaces-roles/entities/space-role.entity';
+import { UserSpace } from '../users_spaces/entities/user-space.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Space, SpaceRole])],
+  imports: [TypeOrmModule.forFeature([Space, SpaceRole, UserSpace])],
   controllers: [SpaceController],
   providers: [SpaceService],
 })
