@@ -1,75 +1,15 @@
 # Board Project with NestJS
-## ERD
-![이미지 설명](/ERD_Board_v4.png)
 
-## src
-- APIs
-  - auth
-    - dto
-      - login.dto.ts
-    - auth.module.ts
-    - auth.service.ts
-    - jwt.strategy.ts
-  - chats
-    - dto
-      - create-comment.dto.ts
-      - create-reply.dto.ts
-    - entities
-      - chat.entity.ts
-    - chats.controller.ts
-    - chats.module.ts
-    - chats.service.ts
-  - posts
-    - dto
-      - anonymous-post.dto.ts
-      - create-post.dto.ts
-    - entities
-      - post.entity.ts
-    - posts.controller.ts
-    - posts.module.ts
-    - posts.service.ts
-  - spaces_members
-    - entities
-      - space-members.entity.ts
-  - spaces
-    - controllers
-      - space-roles.controller.ts
-      - spaces.controller.ts
-    - dto
-      - create-space.dto.ts
-      - join-space.dto.ts
-    - entities
-      - space-role.entity.ts
-      - space.entity.ts
-    - services
-      - space-role.service.ts
-      - spaces.service.ts
-  - spaces_roles
-    - controllers
-      - spaces-roles.controller.ts
-    - dto
-      - space-role.dto.ts
-    - entities
-      - space-role.entity.ts
-    - space-roles.controller.ts
-    - space-roles.module.ts
-    - space-roles.service.ts
-  - users_spaces
-    - entities
-      - user-space.entity.ts
-  - users
-    - dto
-      - user.entity.dto
-    - entities
-      - user.entity.ts
-    - users.controller.ts
-    - users.module.ts
-    - users.service.ts
-- configs
-  - database.config.ts
-  - jwt.config.ts
-  - modules.config.ts
-- middlewares
-  - logger.middleware.ts
-- app.module.ts
-- main.ts
+## 설치 방법
+- 요청하신 서버 동작에 필요한 몇몇 package는 종속성 오류로 lastest 버전의 package를 받았으니 참고 부탁드리며, 
+- 필요할 경우 package.json에서 버전 수정 부탁드립니다.
+- .env는 원래 .gitignore에 포함시키나 test를 위해 포함 시켰습니다.
+
+1. 파일 압축 해제 후 npm install 명령어로 필요한 패키지를 다운받습니다.
+2. mysql에서 서버 연동을 위해 board_development 이름의 schema를 생성합니다.
+3. npm run start:dev 명령어를 통해 dev 환경에서의 db를 사용하여 서버를 실행시킵니다.
+4. prod 환경에서 동작할 경우,
+  - src/configs/database.config.ts 에서 production 옵션을 필요에 따라 수정시킵니다.
+  - npm build를 통해 prod 환경에서 서버를 실행하기 위한 compile을 수행합니다.
+  - npm start:prod 명령어를 통해 prod환경의 db를 사용하여 실행합니다.
+
